@@ -2197,8 +2197,8 @@
         "affectsGlobalScope": false
       },
       "../src/routes/routes.controller.ts": {
-        "version": "6f5c999f2e534a82e05f63f8b3f269a557aaa5fc78bf78d4d4354e96bed92342",
-        "signature": "5f430323e963c68b22bf00a05b41bd728dd51b10129d14e5fd3236342dbd567e",
+        "version": "8a3b307b4ef69f064c155e823730c99b5995b0a3aa55bd4617e4cf6c4141a9ac",
+        "signature": "468d6b52b453f3e01a59336799659c94e8757947672f0828d535bd70fa5f0a85",
         "affectsGlobalScope": false
       },
       "../src/routes/routes.module.ts": {
@@ -2212,7 +2212,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "e25d9bd8f80b6ffbcc8826ed1b407e747e4fbe346c5bab62cbe5837da4eeb189",
+        "version": "351d6f5b39b61576f0256315fcc1327fdabb0208be81ea8ab964835c72ba0bae",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -4182,6 +4182,7 @@
       ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
+        "../node_modules/@nestjs/microservices/index.d.ts",
         "../src/app.module.ts"
       ],
       "../src/routes/dto/update-route.dto.ts": [

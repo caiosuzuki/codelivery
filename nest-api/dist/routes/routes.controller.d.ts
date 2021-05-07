@@ -15,4 +15,12 @@ export declare class RoutesController implements OnModuleInit {
     remove(id: string): string;
     onModuleInit(): Promise<void>;
     startRoute(id: string): void;
+    consumeNewPosition(message: {
+        value: {
+            routeId: string;
+            clientId: string;
+            position: [number, number];
+            finished: boolean;
+        };
+    }): void;
 }

@@ -52,6 +52,9 @@ let RoutesController = class RoutesController {
             ]
         });
     }
+    consumeNewPosition(message) {
+        console.log(message.value);
+    }
 };
 __decorate([
     common_1.Post(),
@@ -94,6 +97,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], RoutesController.prototype, "startRoute", null);
+__decorate([
+    microservices_1.MessagePattern('route.new-position'),
+    __param(0, microservices_1.Payload()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], RoutesController.prototype, "consumeNewPosition", null);
 RoutesController = __decorate([
     common_1.Controller('routes'),
     __param(1, common_1.Inject('KAFKA_SERVICE')),

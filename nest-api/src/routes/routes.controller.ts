@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Inject, OnModuleInit
 import { RoutesService } from './routes.service';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
-import { ClientKafka } from '@nestjs/microservices';
+import { ClientKafka, MessagePattern, Payload } from '@nestjs/microservices';
 import { Producer } from '@nestjs/microservices/external/kafka.interface';
 
 @Controller('routes')
@@ -52,9 +52,24 @@ export class RoutesController implements OnModuleInit {
       messages: [
         {
           key: "route.new-direction",
-          value: JSON.stringify({routeId: id, clientId: ''}),
+          value: JSON.stringify({ routeId: id, clientId: '' }),
         },
       ]
     });
   }
+
+@MessagePattern('route.new-position')
+consumeNewPosition(
+  @Payload()
+  message: {
+    value: {
+      routeId: string;
+      clientId: string;
+      position: [number, number]; 
+      finished:boolean;
+    };
+  },
+) {
+  console.log(message.value);
+}
 }
