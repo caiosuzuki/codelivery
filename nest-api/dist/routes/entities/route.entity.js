@@ -16,6 +16,10 @@ let Route = class Route {
 __decorate([
     mongoose_1.Prop(),
     __metadata("design:type", String)
+], Route.prototype, "_id", void 0);
+__decorate([
+    mongoose_1.Prop(),
+    __metadata("design:type", String)
 ], Route.prototype, "title", void 0);
 __decorate([
     mongoose_1.Prop(mongoose_1.raw({

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoutesController = void 0;
 const common_1 = require("@nestjs/common");
@@ -107,8 +108,7 @@ __decorate([
 RoutesController = __decorate([
     common_1.Controller('routes'),
     __param(1, common_1.Inject('KAFKA_SERVICE')),
-    __metadata("design:paramtypes", [routes_service_1.RoutesService,
-        microservices_1.ClientKafka])
+    __metadata("design:paramtypes", [routes_service_1.RoutesService, typeof (_a = typeof microservices_1.ClientKafka !== "undefined" && microservices_1.ClientKafka) === "function" ? _a : Object])
 ], RoutesController);
 exports.RoutesController = RoutesController;
 //# sourceMappingURL=routes.controller.js.map

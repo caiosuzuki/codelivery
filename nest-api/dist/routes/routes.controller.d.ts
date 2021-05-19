@@ -9,11 +9,11 @@ export declare class RoutesController implements OnModuleInit {
     private kafkaProducer;
     constructor(routesService: RoutesService, kafkaClient: ClientKafka);
     create(createRouteDto: CreateRouteDto): string;
-    findAll(): Promise<import("./entities/route.entity").RouteDocument[]>;
+    findAll(): any;
     findOne(id: string): string;
     update(id: string, updateRouteDto: UpdateRouteDto): string;
     remove(id: string): string;
-    onModuleInit(): Promise<void>;
+    onModuleInit(): any;
     startRoute(id: string): void;
     consumeNewPosition(message: {
         value: {
