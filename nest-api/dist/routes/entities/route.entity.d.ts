@@ -12,4 +12,4 @@ export declare class Route {
         lng: number;
     };
 }
-export declare const RouteSchema: any;
+export declare const RouteSchema: import("mongoose").Schema<Document<Route, {}>, import("mongoose").Model<any, any>, undefined>;

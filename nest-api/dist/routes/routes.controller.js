@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoutesController = void 0;
 const common_1 = require("@nestjs/common");
@@ -19,10 +18,12 @@ const routes_service_1 = require("./routes.service");
 const create_route_dto_1 = require("./dto/create-route.dto");
 const update_route_dto_1 = require("./dto/update-route.dto");
 const microservices_1 = require("@nestjs/microservices");
+const routes_gateway_1 = require("./routes.gateway");
 let RoutesController = class RoutesController {
-    constructor(routesService, kafkaClient) {
+    constructor(routesService, kafkaClient, routeGateway) {
         this.routesService = routesService;
         this.kafkaClient = kafkaClient;
+        this.routeGateway = routeGateway;
     }
     create(createRouteDto) {
         return this.routesService.create(createRouteDto);
@@ -44,17 +45,17 @@ let RoutesController = class RoutesController {
     }
     startRoute(id) {
         this.kafkaProducer.send({
-            topic: "route.new-direction",
+            topic: 'route.new-direction',
             messages: [
                 {
-                    key: "route.new-direction",
+                    key: 'route.new-direction',
                     value: JSON.stringify({ routeId: id, clientId: '' }),
                 },
-            ]
+            ],
         });
     }
     consumeNewPosition(message) {
-        console.log(message.value);
+        this.routeGateway.sendPosition(message.value);
     }
 };
 __decorate([
@@ -108,7 +109,9 @@ __decorate([
 RoutesController = __decorate([
     common_1.Controller('routes'),
     __param(1, common_1.Inject('KAFKA_SERVICE')),
-    __metadata("design:paramtypes", [routes_service_1.RoutesService, typeof (_a = typeof microservices_1.ClientKafka !== "undefined" && microservices_1.ClientKafka) === "function" ? _a : Object])
+    __metadata("design:paramtypes", [routes_service_1.RoutesService,
+        microservices_1.ClientKafka,
+        routes_gateway_1.RoutesGateway])
 ], RoutesController);
 exports.RoutesController = RoutesController;
 //# sourceMappingURL=routes.controller.js.map

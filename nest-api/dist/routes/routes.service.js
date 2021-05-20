@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoutesService = void 0;
 const common_1 = require("@nestjs/common");
@@ -41,7 +40,7 @@ let RoutesService = class RoutesService {
 RoutesService = __decorate([
     common_1.Injectable(),
     __param(0, mongoose_1.InjectModel(route_entity_1.Route.name)),
-    __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object])
+    __metadata("design:paramtypes", [mongoose_2.Model])
 ], RoutesService);
 exports.RoutesService = RoutesService;
 //# sourceMappingURL=routes.service.js.map

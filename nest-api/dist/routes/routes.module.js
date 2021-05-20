@@ -13,6 +13,7 @@ const routes_controller_1 = require("./routes.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const route_entity_1 = require("./entities/route.entity");
 const microservices_1 = require("@nestjs/microservices");
+const routes_gateway_1 = require("./routes.gateway");
 let RoutesModule = class RoutesModule {
 };
 RoutesModule = __decorate([
@@ -45,7 +46,7 @@ RoutesModule = __decorate([
             ]),
         ],
         controllers: [routes_controller_1.RoutesController],
-        providers: [routes_service_1.RoutesService]
+        providers: [routes_service_1.RoutesService, routes_gateway_1.RoutesGateway]
     })
 ], RoutesModule);
 exports.RoutesModule = RoutesModule;
